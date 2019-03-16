@@ -7,8 +7,8 @@ feature 'User signs in' do
     sign_in user.email, user.password
 
     expect(page).to have_content('Logout')
-    expect(page).to have_content('Welcome')
-    expect(current_path).to eq(root_path)
+    expect(page).to have_content('Dashboard')
+    expect(current_path).to eq(dashboard_path)
   end
 
   scenario 'with invalid credentials' do
