@@ -12,10 +12,22 @@ feature 'Dashboard' do
     user = FactoryBot.create(:user)
     sign_in user
 
-    save_and_open_page
     visit dashboard_path
 
-
     expect(page).to have_content('Account Balance: 100')
+  end
+
+  scenario 'a user sends money to another user' do
+    receiver = FactoryBot.create(:user, email: "receiver@email.com")
+    sender = FactoryBot.create(:user)
+    sign_in sender
+
+    visit dashboard_path
+    select receiver.email, from: "transaction_receiver_id"
+    fill_in "transaction_amount", with: 30
+    click_on "Send"
+
+    expect(current_path).to eq(dashboard_path)
+    #test if balance is updated here
   end
 end

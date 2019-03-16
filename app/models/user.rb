@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   has_one :account
 
+  has_many :received_transactions, foreign_key: :receiver_id, class_name: "Transaction"
+  has_many :sent_transactions, foreign_key: :sender_id, class_name: "Transaction"
+
   after_create :create_account!
 
   delegate :balance, to: :account

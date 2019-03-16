@@ -3,3 +3,11 @@
 <div class="user-balance">
   <p> Account Balance: <%= @user.balance %> </p>
 </div>
+
+<div class="transaction-form-area">
+  <%= form_for @transaction do |f| %>
+    <%= f.select :receiver_id,  @receiver_options %>
+    <%= f.number_field :amount %>
+    <%= f.submit :send, value: "Send"%>
+  <% end %>
+</div>

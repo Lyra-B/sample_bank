@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resource :dashboard, only: :show, controller: :dashboard
+
+  resource :transactions, only: :create
 end
