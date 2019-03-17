@@ -1,24 +1,18 @@
 # README
+A basic banking system in rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Set Up
 
-Things you may want to cover:
+git clone https://github.com/Lyra-B/sample_bank.git ,
+bundle , 
+rails db:create , 
+rails db:schema:load
 
-* Ruby version
+To run the tests
 
-* System dependencies
+rspec
 
-* Configuration
+To run locally
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails s ,
+http://localhost:3000
