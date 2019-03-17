@@ -28,6 +28,7 @@ feature 'Dashboard' do
     click_on "Send"
 
     expect(current_path).to eq(dashboard_path)
-    #test if balance is updated here
+    expect(page).to have_content('Account Balance: 70')
+    expect(page).to have_content("You sent 30.0 Bambeuros to #{receiver.email}")
   end
 end

@@ -1,4 +1,4 @@
-<h1> Dashboard </h1>
+<h1>Dashboard</h1>
 
 <div class="user-balance">
   <p> Account Balance: <%= @user.balance %> </p>
@@ -11,3 +11,7 @@
     <%= f.submit :send, value: "Send"%>
   <% end %>
 </div>
+
+<div class="transactions">
+  <%= render @user.transactions %>
+  </div>

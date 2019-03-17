@@ -1,0 +1,5 @@
+<%if transaction.sender == current_user%>
+  <li><%= "You sent #{transaction.amount} Bambeuros to #{transaction.receiver.email}" %></li>
+<% else %>
+  <li><%= "You received #{transaction.amount} Bambeuros from #{transaction.sender.email}"%></li>
+<% end %>

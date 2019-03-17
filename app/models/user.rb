@@ -15,6 +15,18 @@ class User < ApplicationRecord
 
   delegate :balance, to: :account
 
+  def deposit_to_account(amount)
+    account.deposit(amount)
+  end
+
+  def withdraw_from_account(amount)
+    account.withdraw(amount)
+  end
+
+  def transactions
+    received_transactions + sent_transactions
+  end
+
   private
 
   def create_account!

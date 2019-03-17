@@ -2,8 +2,17 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    #make a transaction
+    @transaction = Transaction.new({sender: current_user}.merge(transaction_params))
+    if @transaction.save
+      redirect_to dashboard_path
+    else
+      flash[:alert] = @transaction.errors.full_messages
+    end
+  end
 
-    redirect_to dashboard_path
+  private
+
+  def transaction_params
+    params.require(:transaction).permit(:receiver_id, :amount)
   end
 end
